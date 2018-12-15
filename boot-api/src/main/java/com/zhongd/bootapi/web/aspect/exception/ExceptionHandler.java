@@ -6,6 +6,7 @@ import entity.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author 谢仲东
@@ -18,16 +19,19 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
+    @ResponseBody
     public BaseResponse systemException(Exception e) {
         return BaseResponse.systemError();
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(SignException.class)
+    @ResponseBody
     public BaseResponse signException(SignException e) {
         return BaseResponse.fail(e.getMsg(), e.getCode());
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(ParamException.class)
+    @ResponseBody
     public BaseResponse paramException(ParamException e) {
         return BaseResponse.fail(e.getMsg(), e.getCode());
     }

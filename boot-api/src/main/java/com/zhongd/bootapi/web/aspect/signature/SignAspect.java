@@ -65,6 +65,6 @@ public class SignAspect {
      */
     private boolean validateSign(BaseRequest request, String secret) {
         String text = request.getAppId().concat(request.getRandomStr());
-        return secret.equals(Md5SignUtils.encrypt(text.concat(secret)));
+        return request.getSign().equals(Md5SignUtils.encrypt(text.concat(secret)));
     }
 }

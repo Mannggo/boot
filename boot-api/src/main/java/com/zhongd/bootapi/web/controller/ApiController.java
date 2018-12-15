@@ -23,7 +23,7 @@ public class ApiController {
     @Autowired
     private RetryService retryService;
 
-    @GetMapping("/query")
+    @PostMapping("/query")
     @SignRequest
     public BaseResponse<QueryResponse> query(@RequestBody BaseRequest<QueryParam> request) {
         log.info("收到请求 >>> {}", request);

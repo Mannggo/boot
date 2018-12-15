@@ -1,5 +1,6 @@
 package com.zhongd.bootapi.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
  * @author 谢仲东 2018-12-11 15:50
  */
 @Service
+@Slf4j
 public class RetryService {
 
     /**
@@ -18,9 +20,9 @@ public class RetryService {
      * @param msg
      * @throws Exception
      */
-    @Retryable(value = {Exception.class}, maxAttempts = 5, backoff = @Backoff(delay = 2000L, multiplier = 5))
+    @Retryable(value = {Exception.class}, maxAttempts = 3, backoff = @Backoff(delay = 2000L, multiplier = 2))
     public void retryM(String msg) throws Exception {
-        System.out.println("abc");
+        log.info("执行需要重试的方法 >>> {}", System.currentTimeMillis());
         if ("error".equals(msg)) {
             throw new Exception("失败");
         }
