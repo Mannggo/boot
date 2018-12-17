@@ -23,7 +23,7 @@ public class RetryService {
      */
     @Retryable(value = {Exception.class}, maxAttempts = 3, backoff = @Backoff(delay = 2000L, multiplier = 2))
     public void retryM(String msg) throws Exception {
-        log.info("来了老弟！{}", msg);
+        log.info("消息-{}", msg);
         if (msg.contains("error")) {
             throw new Exception("失败");
         }

@@ -24,6 +24,8 @@ public class HService {
     @Async("retryAsyncPool")
     public void bb(String msg) {
         try {
+            log.info("开始sleep");
+            Thread.sleep(1000 * 20);
             retryService.retryM(msg);
         } catch (Exception e) {
             log.warn("调不通！");

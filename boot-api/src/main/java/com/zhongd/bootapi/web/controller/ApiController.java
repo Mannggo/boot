@@ -38,7 +38,7 @@ public class ApiController {
 
     @GetMapping("/retry")
     public String retry(String msg) throws Exception {
-        log.info("接口来了-");
+        log.info("进入controller - {}", msg);
         hService.bb(msg);
         return "success";
     }
