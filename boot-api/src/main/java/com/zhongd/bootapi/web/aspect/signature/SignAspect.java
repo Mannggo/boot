@@ -1,6 +1,6 @@
 package com.zhongd.bootapi.web.aspect.signature;
 
-import com.zhongd.bootapi.exception.SignException;
+import exception.SignException;
 import com.zhongd.bootapi.service.OrgService;
 import entity.BaseRequest;
 import entity.BaseResponse;

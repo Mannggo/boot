@@ -1,4 +1,4 @@
-package com.zhongd.bootapi.exception;
+package exception;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

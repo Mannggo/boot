@@ -1,4 +1,4 @@
-package com.zhongd.bootapi.exception;
+package exception;
 
 import lombok.Getter;
 

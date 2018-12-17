@@ -1,7 +1,7 @@
 package com.zhongd.bootapi.web.aspect.exception;
 
-import com.zhongd.bootapi.exception.ParamException;
-import com.zhongd.bootapi.exception.SignException;
+import exception.ParamException;
+import exception.SignException;
 import entity.BaseResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;

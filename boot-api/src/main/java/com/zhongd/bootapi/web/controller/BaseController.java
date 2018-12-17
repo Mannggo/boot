@@ -1,6 +1,6 @@
 package com.zhongd.bootapi.web.controller;
 
-import com.zhongd.bootapi.exception.ParamException;
+import exception.ParamException;
 import org.springframework.validation.BindingResult;
 import constants.ExceptionMsg;
 

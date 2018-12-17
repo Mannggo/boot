@@ -12,5 +12,6 @@
     <modules>
         <module>boot-api</module>
         <module>boot-common</module>
+        <module>boot-websocket</module>
     </modules>
 </project>

@@ -1,5 +1,6 @@
-package com.zhongd.bootapi.exception;
+package exception;
 
+import constants.ExceptionMsg;
 import lombok.Getter;
 
 /**
@@ -15,5 +16,10 @@ public class ParamException extends RuntimeException{
     public ParamException(String msg, String code) {
         this.msg = msg;
         this.code = code;
+    }
+
+    public ParamException() {
+        this.code = ExceptionMsg.PARAM_ERROR.getCode();
+        this.msg = ExceptionMsg.PARAM_ERROR.getMsg();
     }
 }
