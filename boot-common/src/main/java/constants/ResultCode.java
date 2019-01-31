@@ -14,6 +14,8 @@ public enum ResultCode {
 
     SYS_ERROR("-1", "系统异常"),
     SERVICE_ERROR("-2", "网络断了吧？"),
+    LOGIN_ERROR("401", "登录超时"),
+    AUTH_ERROR("403", "权限不足"),
     SUCCESS("0", "成功");
 
     private String code;

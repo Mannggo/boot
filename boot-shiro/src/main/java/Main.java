@@ -26,7 +26,11 @@ public class Main {
 
         try {
             subject.login(new UsernamePasswordToken("Zoom", "Boom"));
-            System.out.println("认证通过 => " + subject.getPrincipal());;
+            System.out.println("认证通过 =>\t" + subject.getPrincipal());;
+            System.out.println("是否有ceo角色 =>\t" + subject.hasRole("ceo"));;
+            System.out.println("是否有cto角色 =>\t" + subject.hasRole("cto"));;
+            System.out.println("是否有裁员权限 =>\t" + subject.isPermitted("staff:fire"));;
+            System.out.println("是否有招聘权限 =>\t" + subject.isPermitted("staff:hire"));;
         } catch (IncorrectCredentialsException e) {
             System.out.println("密码不正确");
         } catch (UnknownAccountException e) {

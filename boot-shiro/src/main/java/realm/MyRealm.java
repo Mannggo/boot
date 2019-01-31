@@ -2,6 +2,7 @@ package realm;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -19,7 +20,17 @@ public class MyRealm extends AuthorizingRealm {
      * @return
      */
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+        SimpleAuthorizationInfo a = new SimpleAuthorizationInfo();
+        // 添加用户角色
+        a.addRole("ceo");
+        a.addRole("cto");
+
+        // 添加用户权限
+        // a.addStringPermission("staff:fire");
+        // a.addStringPermission("staff:hire");
+        // 通配符添加权限
+        a.addStringPermission("staff:*");
+        return a;
     }
 
     /**
