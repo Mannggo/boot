@@ -14,5 +14,6 @@
         <module>boot-common</module>
         <module>boot-websocket</module>
         <module>boot-shiro</module>
+        <module>boot-shiro-web</module>
     </modules>
 </project>

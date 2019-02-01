@@ -31,6 +31,17 @@ public class ShiroConfig {
 
         // 添加过滤器
         Map<String, String> filterMap = new LinkedHashMap<>();
+
+        // 忽略swagger2的请求
+        filterMap.put("/swagger*", "anon");
+        filterMap.put("/css/**", "anon");
+        filterMap.put("/js/**", "anon");
+        filterMap.put("/images/**", "anon");
+        filterMap.put("/webjars/**", "anon");
+        filterMap.put("/v2/**", "anon");
+        filterMap.put("/configuration/**", "anon");
+
+        filterMap.put("/auth/login", "anon");
         filterMap.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         // 设置未认证的跳转地址
