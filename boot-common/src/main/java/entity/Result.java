@@ -39,4 +39,9 @@ public class Result {
         return new Result(ResultCode.SERVICE_ERROR.getCode(),
                 msg, null);
     }
+
+    public static Result systemError() {
+        return new Result(ResultCode.SYS_ERROR.getCode(),
+                ResultCode.SYS_ERROR.getDefaultMsg(), null);
+    }
 }

@@ -31,6 +31,15 @@ public class AuthController {
         return result;
     }
 
+    @GetMapping("/unauthorized")
+    @ApiOperation(value = "无权限转发接口")
+    public Result unauthorized() {
+        Result result = new Result();
+        result.setCode(ResultCode.AUTH_ERROR.getCode());
+        result.setMsg(ResultCode.AUTH_ERROR.getDefaultMsg());
+        return result;
+    }
+
     @PostMapping("/login")
     @ApiOperation("登录方法")
     public Result login(@RequestBody UserLoginDetails details) {

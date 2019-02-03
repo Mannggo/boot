@@ -1,7 +1,7 @@
 package com.zhongd.bootshiroweb.web.controller;
 
 import com.zhongd.bootshiroweb.constant.AuthConstants;
-import com.zhongd.bootshiroweb.entity.User;
+import com.zhongd.bootshiroweb.dto.CurrentUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -20,7 +20,7 @@ public class BaseController {
         return getSubject().getSession();
     }
 
-    public User currentUser() {
-        return (User) getSession().getAttribute(AuthConstants.CURRENT_USER_KEY);
+    public CurrentUser currentUser() {
+        return (CurrentUser) getSession().getAttribute(AuthConstants.CURRENT_USER_KEY);
     }
 }
