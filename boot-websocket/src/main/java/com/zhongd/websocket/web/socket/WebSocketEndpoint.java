@@ -4,13 +4,11 @@ import com.zhongd.websocket.client.ConnectedClientCache;
 import com.zhongd.websocket.client.RegisterCache;
 import com.zhongd.websocket.client.dto.Client;
 import com.zhongd.websocket.exception.SocketException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.websocket.OnClose;
-import javax.websocket.OnError;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
@@ -24,6 +22,7 @@ import static java.util.Optional.ofNullable;
  */
 @Component
 @ServerEndpoint("/mySocket/{token}")
+@Slf4j
 public class WebSocketEndpoint {
 
     private Client client;
@@ -57,7 +56,11 @@ public class WebSocketEndpoint {
 
     @OnError
     public void onError(Throwable throwable, Session session) {
-//    	logger.error("Error occurs ! ", throwable);
+    	log.warn(throwable.getMessage());
     }
 
+    @OnMessage
+    public void onMessage(String message, Session session) {
+
+    }
 }

@@ -1,9 +1,13 @@
 package com.zhongd.websocket.client;
 
+import com.zhongd.websocket.dto.MessageDTO;
 import com.zhongd.websocket.web.socket.WebSocketEndpoint;
 import lombok.extern.slf4j.Slf4j;
+import util.GsonUtils;
 
 import java.util.concurrent.ConcurrentHashMap;
+
+import static java.util.Optional.ofNullable;
 
 /**
  * @author 谢仲东
@@ -22,5 +26,12 @@ public class ConnectedClientCache {
     public static void remove(String id) {
         clientMap.remove(id);
         log.info("{} disconnected, current count -> {}", id, clientMap.size());
+    }
+
+    public static void onMessage(String message) {
+        ofNullable(GsonUtils.fromJSON(message, MessageDTO.class))
+                .ifPresent(msg -> {
+
+        });
     }
 }
